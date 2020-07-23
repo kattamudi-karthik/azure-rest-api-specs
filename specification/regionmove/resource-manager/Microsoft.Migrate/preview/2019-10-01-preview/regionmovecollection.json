@@ -1174,7 +1174,7 @@
         },
         "properties": {
           "$ref": "#/definitions/MoveResourceProperties",
-          "description": "The type of the resource.",
+          "description": "Gets or sets the transaction node update properties.",
           "x-ms-client-flatten": true
         }
       }
