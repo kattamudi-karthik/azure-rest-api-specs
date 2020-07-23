@@ -1125,8 +1125,7 @@
         },
         "resourceSettings": {
           "description": "Gets or sets the resource settings.",
-          "$ref": "#/definitions/ResourceSettings",
-           "x-ms-client-flatten": true
+          "$ref": "#/definitions/ResourceSettings"           
         },
         "moveStatus": {
           "allOf": [
@@ -1174,7 +1173,9 @@
           "description": "The type of the resource."
         },
         "properties": {
-          "$ref": "#/definitions/MoveResourceProperties"
+          "$ref": "#/definitions/MoveResourceProperties",
+          "description": "The type of the resource."
+          "x-ms-client-flatten": true
         }
       }
     },
