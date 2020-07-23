@@ -1111,7 +1111,7 @@
           "$ref": "#/definitions/ProvisioningState"
         },
         "sourceId": {
-          "description": "Gets or sets the Source ARM Id of the resource 4.",
+          "description": "Gets or sets the Source ARM Id of the resource 5.",
           "type": "string"
         },
         "targetId": {
@@ -1567,10 +1567,11 @@
           "description": "Gets or sets the target Resource name.",
           "type": "string"
         },
-        "virtualMachineResourceSettings":{
+        "properties":{
           "type": "object",
           "description": "Configure virtual machine settings.",
-          "$ref": "#/definitions/VirtualMachineResourceSettings"
+          "$ref": "#/definitions/VirtualMachineResourceSettings",
+          "x-ms-client-flatten": true
         }       
       },
       "discriminator": "resourceType"
