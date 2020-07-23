@@ -1111,7 +1111,7 @@
           "$ref": "#/definitions/ProvisioningState"
         },
         "sourceId": {
-          "description": "Gets or sets the Source ARM Id of the resource 3.",
+          "description": "Gets or sets the Source ARM Id of the resource 4.",
           "type": "string"
         },
         "targetId": {
@@ -1123,10 +1123,11 @@
           "description": "Gets or sets the existing target ARM Id of the resource.",
           "type": "string"
         },
-        "resourceSettings": {
+        "properties": {
           "description": "Gets or sets the resource settings.",
           "type":"object",         
-          "$ref": "#/definitions/ResourceSettings"           
+          "$ref": "#/definitions/ResourceSettings",
+          "x-ms-client-flatten": true
         },
         "moveStatus": {
           "allOf": [
@@ -1175,8 +1176,7 @@
         },
         "properties": {
           "$ref": "#/definitions/MoveResourceProperties",
-          "description": "Gets or sets the transaction node update properties.",
-          "x-ms-client-flatten": true
+          "description": "Gets or sets the transaction node update properties.",          
         }
       }
     },
