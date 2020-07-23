@@ -1125,7 +1125,8 @@
         },
         "resourceSettings": {
           "description": "Gets or sets the resource settings.",
-          "$ref": "#/definitions/ResourceSettings"
+          "$ref": "#/definitions/ResourceSettings",
+           "x-ms-client-flatten": true
         },
         "moveStatus": {
           "allOf": [
@@ -1567,9 +1568,8 @@
         "virtualMachineResourceSettings":{
           "type": "object",
           "description": "Configure virtual machine settings.",
-          "$ref": "#/definitions/VirtualMachineResourceSettings",
-          "x-ms-client-flatten": true
-        }
+          "$ref": "#/definitions/VirtualMachineResourceSettings"
+        }       
       },
       "discriminator": "resourceType"
     },
