@@ -1573,11 +1573,6 @@
     "VirtualMachineResourceSettings": {
       "description": "Gets or sets the virtual machine resource settings.",
       "type": "object",
-      "allOf": [
-        {
-          "$ref": "#/definitions/ResourceSettings"
-        }
-      ],
       "properties": {
         "targetAvailabilityZone": {
           "description": "Gets or sets the target availability zone.",
