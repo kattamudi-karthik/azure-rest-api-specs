@@ -1596,11 +1596,6 @@
     "AvailabilitySetResourceSettings": {
       "description": "Gets or sets the availability set resource settings.",
       "type": "object",
-      "allOf": [
-        {
-          "$ref": "#/definitions/ResourceSettings"
-        }
-      ],
       "properties": {
         "faultDomain": {
           "description": "Gets or sets the target fault domain.",
@@ -1616,9 +1611,13 @@
           "minimum": 1,
           "maximum": 20,
           "x-nullable": true
+        },
+       "allOf": [
+        {
+          "$ref": "#/definitions/ResourceSettings"
         }
-      },
-      "x-ms-discriminator-value": "Microsoft.Compute/availabilitySets"
+       ]
+      }
     },
     "VirtualNetworkResourceSettings": {
       "description": "Defines the virtual network resource settings.",
