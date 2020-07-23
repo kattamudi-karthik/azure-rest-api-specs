@@ -1611,13 +1611,13 @@
           "minimum": 1,
           "maximum": 20,
           "x-nullable": true
-        },
-       "allOf": [
+        }    
+      },
+      "allOf": [
         {
           "$ref": "#/definitions/ResourceSettings"
         }
        ]
-      }
     },
     "VirtualNetworkResourceSettings": {
       "description": "Defines the virtual network resource settings.",
