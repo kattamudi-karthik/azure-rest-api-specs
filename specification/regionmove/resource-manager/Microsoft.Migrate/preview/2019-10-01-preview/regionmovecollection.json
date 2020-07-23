@@ -1567,7 +1567,8 @@
         "virtualMachineResourceSettings":{
           "type": "object",
           "description": "Configure virtual machine settings.",
-          "$ref": "#/definitions/VirtualMachineResourceSettings"
+          "$ref": "#/definitions/VirtualMachineResourceSettings",
+          "x-ms-client-flatten": true
         }
       },
       "discriminator": "resourceType"
