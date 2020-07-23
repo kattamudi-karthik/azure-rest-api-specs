@@ -1589,7 +1589,7 @@
           "type": "string"
         }
       },
-      "x-ms-discriminator-value": "Microsoft.Compute/virtualMachines"
+      "discriminator": "Microsoft.Compute/virtualMachines"
     },
     "AvailabilitySetResourceSettings": {
       "description": "Gets or sets the availability set resource settings.",
