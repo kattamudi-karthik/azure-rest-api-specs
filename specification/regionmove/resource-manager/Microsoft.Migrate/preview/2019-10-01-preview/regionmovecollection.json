@@ -1176,7 +1176,7 @@
         },
         "properties": {
           "$ref": "#/definitions/MoveResourceProperties",
-          "description": "Gets or sets the transaction node update properties.",          
+          "description": "Gets or sets the transaction node update properties."    
         }
       }
     },
