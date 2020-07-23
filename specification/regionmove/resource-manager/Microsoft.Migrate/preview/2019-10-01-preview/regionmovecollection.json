@@ -1111,7 +1111,7 @@
           "$ref": "#/definitions/ProvisioningState"
         },
         "sourceId": {
-          "description": "Gets or sets the Source ARM Id of the resource 2.",
+          "description": "Gets or sets the Source ARM Id of the resource 3.",
           "type": "string"
         },
         "targetId": {
