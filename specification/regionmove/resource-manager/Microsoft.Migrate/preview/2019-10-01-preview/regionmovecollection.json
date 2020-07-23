@@ -1566,7 +1566,7 @@
         },
         "virtualMachineResourceSettings":{
           "type": "object",
-          "description": "Configure virtual machine settings."
+          "description": "Configure virtual machine settings.",
           "$ref": "#/definitions/VirtualMachineResourceSettings"
         }
       },
