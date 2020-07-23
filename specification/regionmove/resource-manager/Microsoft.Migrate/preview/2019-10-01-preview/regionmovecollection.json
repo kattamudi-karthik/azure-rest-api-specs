@@ -1563,6 +1563,9 @@
         "targetResourceName": {
           "description": "Gets or sets the target Resource name.",
           "type": "string"
+        },
+        "virtualMachineResourceSettings":{
+          "$ref": "#/definitions/VirtualMachineResourceSettings"
         }
       },
       "discriminator": "resourceType"
