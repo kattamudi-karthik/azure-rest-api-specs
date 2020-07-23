@@ -1174,7 +1174,7 @@
         },
         "properties": {
           "$ref": "#/definitions/MoveResourceProperties",
-          "description": "The type of the resource."
+          "description": "The type of the resource.",
           "x-ms-client-flatten": true
         }
       }
