@@ -1125,6 +1125,7 @@
         },
         "resourceSettings": {
           "description": "Gets or sets the resource settings.",
+          "type":"object",         
           "$ref": "#/definitions/ResourceSettings"           
         },
         "moveStatus": {
