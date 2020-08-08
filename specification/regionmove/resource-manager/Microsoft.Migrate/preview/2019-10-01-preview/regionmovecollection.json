@@ -19,10 +19,6 @@
           "MoveCollections"
         ],
         "operationId": "MoveCollections_Create",
-        "x-ms-long-running-operation": true,
-        "x-ms-long-running-operation-options": {
-          "final-state-via": "azure-async-operation"
-        },
         "consumes": [
           "application/json"
         ],
@@ -63,7 +59,59 @@
               "$ref": "#/definitions/MoveCollection"
             }
           },
-          "201": {
+          "default": {
+            "description": "Error response describing why the operation failed.",
+            "schema": {
+              "$ref": "#/definitions/CloudError"
+            }
+          }
+        },
+        "x-ms-examples": {
+          "MoveCollections_Create": {
+            "$ref": "./examples/MoveCollections_Create.json"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "MoveCollections"
+        ],
+        "operationId": "MoveCollection_Update",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/subscriptionId"
+          },
+          {
+            "in": "path",
+            "name": "resourceGroupName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "path",
+            "name": "moveCollectionName",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "$ref": "#/parameters/api-version"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UpdateMoveCollectionRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/MoveCollection"
@@ -77,8 +125,8 @@
           }
         },
         "x-ms-examples": {
-          "MoveCollections_Create": {
-            "$ref": "./examples/MoveCollections_Create.json"
+          "MoveCollection_Update": {
+            "$ref": "./examples/MoveCollection_Update.json"
           }
         }
       },
@@ -195,6 +243,7 @@
           "MoveCollections"
         ],
         "operationId": "MoveCollections_Prepare",
+        "description": "Initiates prepare for the set of resources included in the request body. The prepare operation is on the moveResources that are in the moveState 'PreparePending' or 'PrepareFailed', on a successful completion the moveResource moveState do a transition to MovePending. To aid the user to prerequisite the operation the client can call operation with validateOnly property set to true.",
         "x-ms-long-running-operation": true,
         "x-ms-long-running-operation-options": {
           "final-state-via": "azure-async-operation"
@@ -253,12 +302,13 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/moveCollections/{moveCollectionName}/InitiateMove": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/moveCollections/{moveCollectionName}/initiateMove": {
       "post": {
         "tags": [
           "MoveCollections"
         ],
         "operationId": "MoveCollections_InitiateMove",
+        "description": "Moves the set of resources included in the request body. The move operation is triggered after the moveResources are in the moveState 'MovePending' or 'MoveFailed', on a successful completion the moveResource moveState do a transition to CommitPending. To aid the user to prerequisite the operation the client can call operation with validateOnly property set to true.",
         "x-ms-long-running-operation": true,
         "x-ms-long-running-operation-options": {
           "final-state-via": "azure-async-operation"
@@ -317,12 +367,13 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/MoveCollections/{moveCollectionName}/Commit": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/moveCollections/{moveCollectionName}/commit": {
       "post": {
         "tags": [
           "MoveCollections"
         ],
         "operationId": "MoveCollections_Commit",
+        "description": "Commits the set of resources included in the request body. The commit operation is triggered on the moveResources in the moveState 'CommitPending' or 'CommitFailed', on a successful completion the moveResource moveState do a transition to Committed. To aid the user to prerequisite the operation the client can call operation with validateOnly property set to true.",
         "x-ms-long-running-operation": true,
         "x-ms-long-running-operation-options": {
           "final-state-via": "azure-async-operation"
@@ -381,12 +432,13 @@
         }
       }
     },
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/MoveCollections/{moveCollectionName}/Discard": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/moveCollections/{moveCollectionName}/discard": {
       "post": {
         "tags": [
           "MoveCollections"
         ],
         "operationId": "MoveCollections_Discard",
+        "description": "Discards the set of resources included in the request body. The discard operation is triggered on the moveResources in the moveState 'CommitPending' or 'DiscardFailed', on a successful completion the moveResource moveState do a transition to MovePending. To aid the user to prerequisite the operation the client can call operation with validateOnly property set to true.",
         "x-ms-long-running-operation": true,
         "x-ms-long-running-operation-options": {
           "final-state-via": "azure-async-operation"
@@ -451,6 +503,7 @@
           "MoveCollections"
         ],
         "operationId": "MoveCollections_ResolveDependencies",
+        "description": "Computes, resolves and validate the dependencies of the moveResources in the move collection.",
         "x-ms-long-running-operation": true,
         "x-ms-long-running-operation-options": {
           "final-state-via": "azure-async-operation"
@@ -563,7 +616,7 @@
         }
       }
     },
-	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/MoveCollections/{moveCollectionName}/UnresolvedDependencies": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/moveCollections/{moveCollectionName}/unresolvedDependencies": {
       "get": {
         "tags": [
           "MoveCollections"
@@ -870,7 +923,7 @@
           }
         },
         "x-ms-pageable": {
-          "nextLinkName": null
+          "nextLinkName": "nextLink"
         },
         "x-ms-examples": {
           "MoveCollections_ListMoveCollectionsBySubscription": {
@@ -916,7 +969,7 @@
           }
         },
         "x-ms-pageable": {
-          "nextLinkName": null
+          "nextLinkName": "nextLink"
         },
         "x-ms-examples": {
           "MoveCollections_ListMoveCollectionsByResourceGroup": {
@@ -934,7 +987,11 @@
         "SystemAssigned",
         "UserAssigned"
       ],
-      "type": "string"
+      "type": "string",
+      "x-ms-enum": {
+        "name": "ResourceIdentityType",
+        "modelAsString": true
+      }
     },
     "Identity": {
       "description": "Defines the MSI properties of the Move Collection.",
@@ -960,12 +1017,6 @@
         "PreparePending",
         "PrepareInProgress",
         "PrepareFailed",
-        "PrepareStarted",
-        "PrepareFinalizeInProgress",
-        "PrepareFinalizeFailed",
-        "PrepareInitiateSyncTrackingInProgress",
-        "PrepareSyncInProgress",
-        "PrepareInitiateSyncTrackingFailed",
         "MovePending",
         "MoveInProgress",
         "MoveFailed",
@@ -976,7 +1027,11 @@
         "CommitFailed",
         "Committed"
       ],
-      "type": "string"
+      "type": "string",
+      "x-ms-enum": {
+        "name": "MoveState",
+        "modelAsString": true
+      }
     },
     "ProvisioningState": {
       "description": "Defines the provisioning states.",
@@ -986,14 +1041,22 @@
         "Creating",
         "Failed"
       ],
-      "type": "string"
+      "type": "string",
+      "x-ms-enum": {
+        "name": "ProvisioningState",
+        "modelAsString": true
+      }
     },
     "JobName": {
       "description": "Defines the job names.",
       "enum": [
         "InitialSync"
       ],
-      "type": "string"
+      "type": "string",
+      "x-ms-enum": {
+        "name": "JobName",
+        "modelAsString": true
+      }
     },
     "JobStatus": {
       "description": "Defines the job status.",
@@ -1019,7 +1082,7 @@
           "$ref": "#/definitions/JobStatus"
         },
         "errors": {
-          "$ref": "#/definitions/CloudError"
+          "$ref": "#/definitions/MoveResourceError"
         },
         "targetId": {
           "description": "Gets the Target ARM Id of the resource.",
@@ -1033,7 +1096,11 @@
         "Manual",
         "Automatic"
       ],
-      "type": "string"
+      "type": "string",
+      "x-ms-enum": {
+        "name": "ResolutionType",
+        "modelAsString": true
+      }
     },
     "DependencyType": {
       "description": "Defines the dependency type.",
@@ -1041,7 +1108,11 @@
         "RequiredForPrepare",
         "RequiredForMove"
       ],
-      "type": "string"
+      "type": "string",
+      "x-ms-enum": {
+        "name": "DependencyType",
+        "modelAsString": true
+      }
     },
     "MoveResourceDependency": {
       "description": "Defines the dependency of the move resource.",
@@ -1106,9 +1177,13 @@
     "MoveResourceProperties": {
       "description": "Defines the move resource properties.",
       "type": "object",
+      "required": [
+        "sourceId"
+      ],
       "properties": {
         "provisioningState": {
-          "$ref": "#/definitions/ProvisioningState"
+          "$ref": "#/definitions/ProvisioningState",
+          "readOnly": true
         },
         "sourceId": {
           "description": "Gets or sets the Source ARM Id of the resource.",
@@ -1126,6 +1201,14 @@
         "resourceSettings": {
           "description": "Gets or sets the resource settings.",
           "$ref": "#/definitions/ResourceSettings"
+        },
+        "sourceResourceSettings": {
+          "allOf": [
+            {
+              "$ref": "#/definitions/ResourceSettings"
+            }
+          ],
+          "readOnly": true
         },
         "moveStatus": {
           "allOf": [
@@ -1149,6 +1232,9 @@
           "items": {
             "$ref": "#/definitions/MoveResourceDependencyOverride"
           }
+        },
+        "errors": {
+          "$ref": "#/definitions/MoveResourceError"
         }
       }
     },
@@ -1180,6 +1266,10 @@
     "MoveCollectionProperties": {
       "description": "Defines the move collection properties.",
       "type": "object",
+      "required": [
+        "sourceRegion",
+        "targetRegion"
+      ],
       "properties": {
         "sourceRegion": {
           "description": "Gets or sets the source region.",
@@ -1322,11 +1412,11 @@
       ],
       "properties": {
         "validateOnly": {
-          "description": "Gets or sets a value indicating whether the operation needs to only run pre-requisite.",
+          "description": "Gets or sets the list of resource Id's, by default it accepts move resource id's unless the input type is switched via moveResourceInputType property.",
           "type": "boolean"
         },
         "moveResources": {
-          "description": "Gets or sets the list of resource Id's, by default it accepts move resource id's unless the input type is switched via moveResourceInputType property.",
+          "description": "Gets or sets the list of move resources ARM id's.",
           "type": "array",
           "items": {
             "type": "string"
@@ -1375,15 +1465,15 @@
       "properties": {
         "properties": {
           "$ref": "#/definitions/MoveResourceFilterProperties"
-          }
         }
+      }
     },
     "MoveResourceFilterProperties": {
       "properties": {
-        "ProvisioningState": {
+        "provisioningState": {
           "type": "string",
           "description": "The provisioning state."
-          }
+        }
       }
     },
     "MoveResourceCollection": {
@@ -1469,7 +1559,7 @@
           "type": "string"
         },
         "description": {
-          "description": "Gets or sets the description.\r\nThe localized friendly description for the operation, as it should be shown to the\r\nuser.\r\nIt should be thorough, yet concise – it will be used in tool tips and detailed views.\r\nPrescriptive guidance for namespace:\r\nRead any 'display.provider'  resource\r\nCreate or Update any  'display.provider'  resource\r\nDelete any  'display.provider'  resource\r\nPerform any other action on any  'display.provider'  resource\r\nPrescriptive guidance for namespace:\r\nRead any 'display.resource' Create or Update any  'display.resource' Delete any\r\n'display.resource' 'ActionName' any 'display.resources'.",
+          "description": "Gets or sets the description.\r\nThe localized friendly description for the operation, as it should be shown to the\r\nuser.\r\nIt should be thorough, yet concise – it will be used in tool tips and detailed views.\r\nPrescriptive guidance for namespace:\r\nRead any 'display.provider'  resource\r\nCreate or Update any  'display.provider'  resource\r\nDelete any  'display.provider'  resource\r\nPerform any other action on any  'display.provider'  resource\r\nPrescriptive guidance for namespace:\r\nRead any 'display.resource' Create or Update any  'display.resource' Delete any\r\n 'display.resource' 'ActionName' any 'display.resources'.",
           "type": "string"
         }
       }
@@ -1515,17 +1605,17 @@
         }
       }
     },
-    "CloudError": {
+    "MoveResourceError": {
       "properties": {
         "properties": {
           "type": "object",
-          "description": "The cloud error body.",
-          "$ref": "#/definitions/CloudErrorBody"
+          "description": "The move resource error body.",
+          "$ref": "#/definitions/MoveResourceErrorBody"
         }
       },
       "description": "An error response from the azure region move service."
     },
-    "CloudErrorBody": {
+    "MoveResourceErrorBody": {
       "properties": {
         "code": {
           "type": "string",
@@ -1542,7 +1632,7 @@
         "details": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/CloudErrorBody"
+            "$ref": "#/definitions/MoveResourceErrorBody"
           },
           "description": "A list of additional details about the error."
         }
@@ -1584,7 +1674,11 @@
             "2",
             "3",
             "NA"
-          ]
+          ],
+          "x-ms-enum": {
+            "name": "targetAvailabilityZone",
+            "modelAsString": true
+          }
         },
         "targetVmSize": {
           "description": "Gets or sets the target vm size.",
@@ -1670,7 +1764,11 @@
         "Enable",
         "Disable"
       ],
-      "type": "string"
+      "type": "string",
+      "x-ms-enum": {
+        "name": "ZoneRedundant",
+        "modelAsString": true
+      }
     },
     "SqlElasticPoolResourceSettings": {
       "description": "Defines the Sql ElasticPool resource settings.",
@@ -1734,6 +1832,41 @@
       ],
       "properties": {},
       "x-ms-discriminator-value": "Microsoft.Network/loadBalancers"
+    },
+    "CloudError": {
+      "x-ms-external": true,
+      "properties": {
+        "error": {
+          "$ref": "#/definitions/CloudErrorBody",
+          "description": "Cloud error body."
+        }
+      },
+      "description": "An error response from the service."
+    },
+    "CloudErrorBody": {
+      "x-ms-external": true,
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "An identifier for the error. Codes are invariant and are intended to be consumed programmatically."
+        },
+        "message": {
+          "type": "string",
+          "description": "A message describing the error, intended to be suitable for display in a user interface."
+        },
+        "target": {
+          "type": "string",
+          "description": "The target of the particular error. For example, the name of the property in error."
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CloudErrorBody"
+          },
+          "description": "A list of additional details about the error."
+        }
+      },
+      "description": "An error response from the service."
     },
     "OperationStatus": {
       "description": "Operation status REST resource.",
@@ -1800,15 +1933,71 @@
         },
         "additionalInfo": {
           "readOnly": true,
-          "type": "object",
-          "description": "The additional info."
+          "type": "array",
+          "description": "The additional info.",
+          "items": {
+            "$ref": "#/definitions/OperationErrorAdditionalInfo"
+          }
         }
       }
     },
     "OperationStatusProperties": {
       "description": "Class for operation result properties.",
       "type": "object",
+      "properties": {}
+    },
+    "OperationErrorAdditionalInfo": {
+      "description": "The operation error info.",
+      "type": "object",
       "properties": {
+        "type": {
+          "readOnly": true,
+          "type": "string",
+          "description": "The error type."
+        },
+        "info": {
+          "readOnly": true,
+          "$ref": "#/definitions/MoveErrorInfo",
+          "description": "The operation error info."
+        }
+      }
+    },
+    "MoveErrorInfo": {
+      "description": "The move custom error info.",
+      "type": "object",
+      "properties": {
+        "moveResources": {
+          "readOnly": true,
+          "type": "array",
+          "description": "The affected move resources.",
+          "items": {
+            "$ref": "#/definitions/AffectedMoveResource"
+          }
+        }
+      }
+    },
+    "AffectedMoveResource": {
+      "description": "The RP custom operation error info.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "readOnly": true,
+          "type": "string",
+          "description": "The affected move resource id."
+        },
+        "sourceId": {
+          "readOnly": true,
+          "type": "string",
+          "description": "The affected move resource source id."
+        },
+        "moveResources": {
+          "readOnly": true,
+          "type": "array",
+          "description": "The affected move resources.",
+          "items": {
+            "$ref": "#/definitions/AffectedMoveResource"
+          }
+        }
       }
     }
   },
