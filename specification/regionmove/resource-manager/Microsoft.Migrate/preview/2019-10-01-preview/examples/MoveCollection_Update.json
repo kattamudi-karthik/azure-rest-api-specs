@@ -3,7 +3,11 @@
     "moveCollectionName": "movecollection1",
     "subscriptionId": "subid",
     "resourceGroupName": "rg1",
-    "api-version": "2019-10-01-preview"
+    "moveResourceName": "moveresourcename1",
+    "api-version": "2019-10-01-preview",
+    "properties": {
+      "tags": "mc1"
+    }
   },
   "responses": {
     "200": {

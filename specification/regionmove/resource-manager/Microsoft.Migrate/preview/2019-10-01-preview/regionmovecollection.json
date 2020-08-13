@@ -53,7 +53,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "201": {
             "description": "Success",
             "schema": {
               "$ref": "#/definitions/MoveCollection"
@@ -720,7 +720,7 @@
             "description": "Accepted"
           },
           "200": {
-            "description": "Success",
+            "description": "OK",
             "schema": {
               "$ref": "#/definitions/MoveResource"
             }
@@ -1033,6 +1033,18 @@
         "modelAsString": true
       }
     },
+    "MoveResourceInputType": {
+      "description": "Defines the move resource input type.",
+      "type": "string",
+      "enum": [
+        "MoveResourceId",
+        "MoveResourceSourceId"
+      ],
+      "x-ms-enum": {
+        "name": "moveResourceInputType",
+        "modelAsString": true
+      }
+    },
     "ProvisioningState": {
       "description": "Defines the provisioning states.",
       "enum": [
@@ -1137,6 +1149,10 @@
         },
         "automaticResolution": {
           "$ref": "#/definitions/AutomaticResolutionProperties"
+        },
+        "isOptional": {
+          "description": "Gets or sets a value indicating whether the dependency is optional.",
+          "type": "string"
         }
       }
     },
@@ -1203,6 +1219,7 @@
           "$ref": "#/definitions/ResourceSettings"
         },
         "sourceResourceSettings": {
+          "description": "Gets or sets the source resource settings.",
           "allOf": [
             {
               "$ref": "#/definitions/ResourceSettings"
@@ -1367,12 +1384,7 @@
           }
         },
         "moveResourceInputType": {
-          "description": "Defines the move resource input type.",
-          "enum": [
-            "MoveResourceId",
-            "MoveResourceSourceId"
-          ],
-          "type": "string"
+          "$ref": "#/definitions/MoveResourceInputType"
         }
       }
     },
@@ -1395,12 +1407,7 @@
           }
         },
         "moveResourceInputType": {
-          "description": "Defines the move resource input type.",
-          "enum": [
-            "MoveResourceId",
-            "MoveResourceSourceId"
-          ],
-          "type": "string"
+          "$ref": "#/definitions/MoveResourceInputType"
         }
       }
     },
@@ -1423,12 +1430,7 @@
           }
         },
         "moveResourceInputType": {
-          "description": "Defines the move resource input type.",
-          "enum": [
-            "MoveResourceId",
-            "MoveResourceSourceId"
-          ],
-          "type": "string"
+          "$ref": "#/definitions/MoveResourceInputType"
         }
       }
     },
@@ -1451,12 +1453,7 @@
           }
         },
         "moveResourceInputType": {
-          "description": "Defines the move resource input type.",
-          "enum": [
-            "MoveResourceId",
-            "MoveResourceSourceId"
-          ],
-          "type": "string"
+          "$ref": "#/definitions/MoveResourceInputType"
         }
       }
     },
@@ -1643,7 +1640,8 @@
       "description": "Gets or sets the resource settings.",
       "type": "object",
       "required": [
-        "resourceType"
+        "resourceType",
+        "targetResourceName"
       ],
       "properties": {
         "resourceType": {
@@ -1682,6 +1680,10 @@
         },
         "targetVmSize": {
           "description": "Gets or sets the target vm size.",
+          "type": "string"
+        },
+        "targetAvailabilitySetId": {
+          "description": "Gets or sets the target availability set id for virtual machines not in an availability set at source.",
           "type": "string"
         }
       },
