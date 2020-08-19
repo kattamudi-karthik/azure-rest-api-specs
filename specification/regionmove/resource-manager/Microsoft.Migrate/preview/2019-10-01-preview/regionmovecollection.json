@@ -1258,7 +1258,8 @@
           }
         },
         "errors": {
-          "$ref": "#/definitions/MoveResourceError"
+          "$ref": "#/definitions/MoveResourceError",
+          "readOnly": true
         }
       }
     },
