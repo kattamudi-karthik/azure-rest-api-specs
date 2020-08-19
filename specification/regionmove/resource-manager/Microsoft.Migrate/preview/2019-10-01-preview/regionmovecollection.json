@@ -1242,7 +1242,7 @@
           ],
           "readOnly": true
         },
-        "dependsOn2": {
+        "dependsOn": {
           "description": "Gets or sets the move resource dependencies.",
           "type": "array",
           "readOnly": true,
@@ -1250,7 +1250,7 @@
             "$ref": "#/definitions/MoveResourceDependency"
           }
         },
-        "dependsOnOverrides2": {
+        "dependsOnOverrides": {
           "description": "Gets or sets the move resource dependencies overrides.",
           "type": "array",
           "items": {
@@ -1258,8 +1258,7 @@
           }
         },
         "errors": {
-          "$ref": "#/definitions/MoveResourceError",
-          "readOnly": true
+          "$ref": "#/definitions/MoveResourceError"
         }
       }
     },
@@ -1312,9 +1311,8 @@
     "MoveCollection": {
       "description": "Define the move collection.",
       "type": "object",
-      "required":["properties"]
       "x-ms-azure-resource": true,
-      "properties": {        
+      "properties": {
         "id": {
           "readOnly": true,
           "type": "string",
