@@ -1037,7 +1037,8 @@
       "x-ms-enum": {
         "name": "MoveState",
         "modelAsString": true
-      }
+      },
+      "readOnly": true
     },
     "MoveResourceInputType": {
       "description": "Defines the move resource input type.",
@@ -1049,7 +1050,8 @@
       "x-ms-enum": {
         "name": "moveResourceInputType",
         "modelAsString": true
-      }
+      },
+      "readOnly": true
     },
     "ProvisioningState": {
       "description": "Defines the provisioning states.",
@@ -1075,11 +1077,13 @@
       "x-ms-enum": {
         "name": "JobName",
         "modelAsString": true
-      }
+      },
+      "readOnly": true
     },
     "JobStatus": {
       "description": "Defines the job status.",
       "type": "object",
+      "readOnly": true
       "properties": {
         "jobName": {
           "$ref": "#/definitions/JobName"
@@ -1093,6 +1097,7 @@
     "MoveResourceStatus": {
       "description": "Defines the move resource status.",
       "type": "object",
+      "readOnly": true
       "properties": {
         "moveState": {
           "$ref": "#/definitions/MoveState"
@@ -1236,8 +1241,7 @@
         "moveStatus": {
           "allOf": [
             {
-              "$ref": "#/definitions/MoveResourceStatus",
-              "readOnly": true
+              "$ref": "#/definitions/MoveResourceStatus"
             }
           ],
           "readOnly": true
@@ -1313,8 +1317,8 @@
       "description": "Define the move collection.",
       "type": "object",
       "x-ms-azure-resource": true,
+      "required": ["properties"],
       "properties": {
-       "required": ["properties2"],
         "id": {
           "readOnly": true,
           "type": "string",
@@ -1353,7 +1357,7 @@
         "identity": {
           "$ref": "#/definitions/Identity"
         },
-        "properties2": {
+        "properties": {
           "$ref": "#/definitions/MoveCollectionProperties"
         }
       }
