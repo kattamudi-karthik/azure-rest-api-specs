@@ -1037,8 +1037,7 @@
       "x-ms-enum": {
         "name": "MoveState",
         "modelAsString": true
-      },
-      "readOnly": true
+      }
     },
     "MoveResourceInputType": {
       "description": "Defines the move resource input type.",
@@ -1050,8 +1049,7 @@
       "x-ms-enum": {
         "name": "moveResourceInputType",
         "modelAsString": true
-      },
-      "readOnly": true
+      }
     },
     "ProvisioningState": {
       "description": "Defines the provisioning states.",
@@ -1076,28 +1074,27 @@
       "type": "string",
       "x-ms-enum": {
         "name": "JobName",
-        "modelAsString": true
-      },
-      "readOnly": true
+        "modelAsString": true,
+        "readOnly": true
+      }
     },
     "JobStatus": {
       "description": "Defines the job status.",
       "type": "object",
-      "readOnly": true
       "properties": {
         "jobName": {
           "$ref": "#/definitions/JobName"
         },
         "jobProgress": {
           "description": "Gets or sets the monitoring job percentage.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         }
       }
     },
     "MoveResourceStatus": {
       "description": "Defines the move resource status.",
       "type": "object",
-      "readOnly": true
       "properties": {
         "moveState": {
           "$ref": "#/definitions/MoveState"
@@ -1254,7 +1251,7 @@
             "$ref": "#/definitions/MoveResourceDependency"
           }
         },
-        "dependsOnOverrides42": {
+        "dependsOnOverrides": {
           "description": "Gets or sets the move resource dependencies overrides.",
           "type": "array",
           "items": {
@@ -1262,8 +1259,7 @@
           }
         },
         "errors": {
-          "$ref": "#/definitions/MoveResourceError",
-          "readOnly": true
+          "$ref": "#/definitions/MoveResourceError"
         }
       }
     },
@@ -1317,7 +1313,6 @@
       "description": "Define the move collection.",
       "type": "object",
       "x-ms-azure-resource": true,
-      "required": ["properties"],
       "properties": {
         "id": {
           "readOnly": true,
