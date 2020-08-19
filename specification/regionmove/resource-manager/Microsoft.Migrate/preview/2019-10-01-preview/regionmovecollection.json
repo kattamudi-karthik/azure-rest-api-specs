@@ -1072,10 +1072,10 @@
         "InitialSync"
       ],
       "type": "string",
+      "readOnly": true
       "x-ms-enum": {
         "name": "JobName",
-        "modelAsString": true,
-        "readOnly": true
+        "modelAsString": true
       }
     },
     "JobStatus": {
