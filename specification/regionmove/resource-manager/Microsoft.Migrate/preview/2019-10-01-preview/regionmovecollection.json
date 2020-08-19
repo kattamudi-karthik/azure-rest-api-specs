@@ -1237,12 +1237,13 @@
           "allOf": [
             {
               "$ref": "#/definitions/MoveResourceStatus",
-              "readOnly": true
+              
             }
+            "readOnly": true
           ],
           "readOnly": true
         },
-        "dependsOn": {
+        "dependsOn2": {
           "description": "Gets or sets the move resource dependencies.",
           "type": "array",
           "readOnly": true,
