@@ -1237,9 +1237,8 @@
           "allOf": [
             {
               "$ref": "#/definitions/MoveResourceStatus",
-              
+              "readOnly": true
             }
-            "readOnly": true
           ],
           "readOnly": true
         },
