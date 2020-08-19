@@ -1250,7 +1250,7 @@
             "$ref": "#/definitions/MoveResourceDependency"
           }
         },
-        "dependsOnOverrides3": {
+        "dependsOnOverrides4": {
           "description": "Gets or sets the move resource dependencies overrides.",
           "type": "array",
           "items": {
