@@ -1072,7 +1072,7 @@
         "InitialSync"
       ],
       "type": "string",
-      "readOnly": true
+      "readOnly": true,
       "x-ms-enum": {
         "name": "JobName",
         "modelAsString": true
@@ -1080,15 +1080,14 @@
     },
     "JobStatus": {
       "description": "Defines the job status.",
-      "type": "object",
+      "type": "object",      
       "properties": {
         "jobName": {
           "$ref": "#/definitions/JobName"
         },
         "jobProgress": {
           "description": "Gets or sets the monitoring job percentage.",
-          "type": "string",
-          "readOnly": true
+          "type": "string"
         }
       }
     },
