@@ -1313,7 +1313,7 @@
       "description": "Define the move collection.",
       "type": "object",
        "required": [
-        MoveCollectionProperties
+        "properties"
       ],
       "x-ms-azure-resource": true,
       "properties": {
