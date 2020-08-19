@@ -1250,7 +1250,7 @@
             "$ref": "#/definitions/MoveResourceDependency"
           }
         },
-        "dependsOnOverrides4": {
+        "dependsOnOverrides42": {
           "description": "Gets or sets the move resource dependencies overrides.",
           "type": "array",
           "items": {
@@ -1312,11 +1312,9 @@
     "MoveCollection": {
       "description": "Define the move collection.",
       "type": "object",
-       "required": [
-        "properties"
-      ],
       "x-ms-azure-resource": true,
       "properties": {
+       "required": ["properties2"],
         "id": {
           "readOnly": true,
           "type": "string",
@@ -1355,7 +1353,7 @@
         "identity": {
           "$ref": "#/definitions/Identity"
         },
-        "properties": {
+        "properties2": {
           "$ref": "#/definitions/MoveCollectionProperties"
         }
       }
