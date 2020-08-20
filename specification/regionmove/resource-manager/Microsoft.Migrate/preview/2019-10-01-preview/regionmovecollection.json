@@ -1095,29 +1095,18 @@
       "type": "object",
       "properties": {
         "moveState": {
-          "allOf": [
-            {
-              "$ref": "#/definitions/MoveState"
-            }
-          ],
-          "readOnly": true
+          "$ref": "#/definitions/MoveState"
         },
         "jobStatus": {
-              "allOf": [
+          "allOf": [
             {
               "$ref": "#/definitions/JobStatus"
             }
           ],
-          
-          "readOnly": true  
+          "readOnly": true
         },
         "errors": {
-           "allOf": [
-            {
-              "$ref": "#/definitions/MoveResourceError"
-            }
-          ],
-          "readOnly": true
+          "$ref": "#/definitions/MoveResourceError"
         },
         "targetId": {
           "description": "Gets the Target ARM Id of the resource.",
@@ -1243,7 +1232,7 @@
         "sourceResourceSettings": {
           "description": "Gets or sets the source resource settings.",
           "allOf": [
-           {
+            {
               "$ref": "#/definitions/ResourceSettings"
             }
           ],
@@ -1257,7 +1246,7 @@
           ],
           "readOnly": true
         },
-        "dependsOn45": {
+        "dependsOn": {
           "description": "Gets or sets the move resource dependencies.",
           "type": "array",
           "readOnly": true,
@@ -1265,7 +1254,7 @@
             "$ref": "#/definitions/MoveResourceDependency"
           }
         },
-        "dependsOnOverrides44": {
+        "dependsOnOverrides": {
           "description": "Gets or sets the move resource dependencies overrides.",
           "type": "array",
           "items": {
