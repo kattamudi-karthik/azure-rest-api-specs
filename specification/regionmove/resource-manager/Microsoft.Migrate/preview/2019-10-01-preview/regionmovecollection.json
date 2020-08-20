@@ -1244,7 +1244,7 @@
           ],
           "readOnly": true
         },
-        "dependsOn": {
+        "dependsOn42": {
           "description": "Gets or sets the move resource dependencies.",
           "type": "array",
           "readOnly": true,
@@ -1252,7 +1252,7 @@
             "$ref": "#/definitions/MoveResourceDependency"
           }
         },
-        "dependsOnOverrides": {
+        "dependsOnOverrides43": {
           "description": "Gets or sets the move resource dependencies overrides.",
           "type": "array",
           "items": {
