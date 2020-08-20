@@ -1095,15 +1095,28 @@
       "type": "object",
       "properties": {
         "moveState": {
-          "$ref": "#/definitions/MoveState",
+          "allOf": [
+            {
+              "$ref": "#/definitions/MoveState"
+            }
+          ],
           "readOnly": true
         },
         "jobStatus": {
-          "$ref": "#/definitions/JobStatus",
+              "allOf": [
+            {
+              "$ref": "#/definitions/JobStatus"
+            }
+          ],
+          
           "readOnly": true  
         },
         "errors": {
-          "$ref": "#/definitions/MoveResourceError",
+           "allOf": [
+            {
+              "$ref": "#/definitions/MoveResourceError"
+            }
+          ],
           "readOnly": true
         },
         "targetId": {
@@ -1230,7 +1243,7 @@
         "sourceResourceSettings": {
           "description": "Gets or sets the source resource settings.",
           "allOf": [
-            {
+           {
               "$ref": "#/definitions/ResourceSettings"
             }
           ],
