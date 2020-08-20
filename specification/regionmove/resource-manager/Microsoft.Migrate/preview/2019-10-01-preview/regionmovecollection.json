@@ -1096,17 +1096,21 @@
       "type": "object",
       "properties": {
         "moveState": {
-          "$ref": "#/definitions/MoveState"
+          "$ref": "#/definitions/MoveState",
+          "readOnly": true
         },
         "jobStatus": {
-          "$ref": "#/definitions/JobStatus"
+          "$ref": "#/definitions/JobStatus",
+          "readOnly": true
         },
         "errors": {
-          "$ref": "#/definitions/MoveResourceError"
+          "$ref": "#/definitions/MoveResourceError",
+          "readOnly": true
         },
         "targetId": {
           "description": "Gets the Target ARM Id of the resource.",
           "type": "string"
+          "readOnly": true
         }
       }
     },
