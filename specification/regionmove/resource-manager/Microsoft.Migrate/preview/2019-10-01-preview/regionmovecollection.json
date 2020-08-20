@@ -1100,7 +1100,7 @@
         },
         "jobStatus": {
           "$ref": "#/definitions/JobStatus",
-          "readOnly": true
+          "readOnly": true  
         },
         "errors": {
           "$ref": "#/definitions/MoveResourceError",
