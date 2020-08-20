@@ -1072,7 +1072,6 @@
         "InitialSync"
       ],
       "type": "string",
-      "readOnly": true,
       "x-ms-enum": {
         "name": "JobName",
         "modelAsString": true
@@ -1080,7 +1079,7 @@
     },
     "JobStatus": {
       "description": "Defines the job status.",
-      "type": "object",      
+      "type": "object",
       "properties": {
         "jobName": {
           "$ref": "#/definitions/JobName"
@@ -1110,7 +1109,6 @@
         "targetId": {
           "description": "Gets the Target ARM Id of the resource.",
           "type": "string"
-          "readOnly": true
         }
       }
     },
