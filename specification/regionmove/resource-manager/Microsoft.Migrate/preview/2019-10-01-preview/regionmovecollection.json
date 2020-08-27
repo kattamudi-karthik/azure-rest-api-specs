@@ -1021,7 +1021,8 @@
         },
         "targetId": {
           "description": "Gets the Target ARM Id of the resource.",
-          "type": "string"
+          "type": "string",
+          "readOnly": true
         }
       }
     },
